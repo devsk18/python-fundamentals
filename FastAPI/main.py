@@ -6,3 +6,12 @@ from sqlalchemy.orm import sessionmaker, Session
 
 from pydantic import BaseModel
 from typing import Optional, List
+
+app = FastAPI(title="Learning FastAPI + SqlAlchemy")
+
+# endpoints
+@app.get("/")
+def root():
+    return {"message" : "hello from app"}
+
+
