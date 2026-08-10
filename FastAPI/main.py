@@ -28,6 +28,33 @@ class User(Base):
 # links the models and engine
 Base.metadata.create_all(engine)
 
+# pydantic models (Dataclass) - api models we send & recieve
+class UserCreate(BaseModel):
+    name: str
+    email: str
+    role: str
+
+# helps to protect private datas of model class - restrict in api response
+class UserResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+    role: str
+
+    class Configs:
+        from_attributes = True
+
+
+# to establish the database
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+get_db()
+
 # endpoints
 @app.get("/")
 def root():

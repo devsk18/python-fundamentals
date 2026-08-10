@@ -44,3 +44,12 @@ class User(Base):
     ...
 ```
 - then link the models and engine with `Base.metadata.create_all(engine)`
+
+# pydantic models
+- api model of what we send and recieve - DataClass
+
+# model responses
+- to protect sensitive columns from getting exposed in apis
+
+# establish database
+- add a function to create a session of the db
