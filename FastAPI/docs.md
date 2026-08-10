@@ -47,9 +47,28 @@ class User(Base):
 
 # pydantic models
 - api model of what we send and recieve - DataClass
+- can use it to do form validations
 
 # model responses
 - to protect sensitive columns from getting exposed in apis
 
 # establish database
 - add a function to create a session of the db
+
+# route decorators
+- `@app()` used to define routes and connects its controller function
+- configure pydantic response class and status codes along with it
+
+# middleware
+- use to intercept request & response
+- use async function to not block concurent requests 
+- `@app().middleware()` -- fn attached to the route
+
+# db commits
+- use `db.commit()` to save new changes
+- use `db.refresh()` to reflect the changes
+
+# db queries
+- use `db.query(model).filter(col == col).first()/all()` to fetch data with conditions
+- use `db.add()` to add a new row
+- use `db.delete()` to delete a row
